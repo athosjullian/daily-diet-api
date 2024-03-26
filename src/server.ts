@@ -3,7 +3,7 @@ import fastify from "fastify";
 const server = fastify();
 
 server.get("/", (request, reply) => {
-  reply.status(200).send("Hi");
+  reply.status(200).send("Hello World!");
 });
 
 server

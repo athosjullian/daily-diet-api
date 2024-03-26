@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "tsx watch src/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint src --ext .ts --fix"
   },
   "author": "Athos Jullian",
   "license": "ISC",
