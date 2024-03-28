@@ -29,4 +29,4 @@ app.post("/users", async (request, reply) => {
     .returning("*");
 
   return reply.status(201).send(user);
-})
+});
