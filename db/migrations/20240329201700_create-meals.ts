@@ -8,7 +8,7 @@ export async function up(knex: Knex): Promise<void> {
     table.string("description").notNullable();
     table.boolean("is_on_diet").notNullable();
     table.date("date").notNullable();
-    table.timestamps(true, false);
+    table.timestamps(true, true);
   });
 }
 
