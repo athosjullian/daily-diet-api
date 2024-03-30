@@ -5,11 +5,15 @@ import { FastifyInstance } from "fastify/types/instance";
 import { checkSessionIdExists } from "../middlewares/check-session-id-exists";
 
 export const usersRoutes = async (app: FastifyInstance) => {
-  app.get("/", { preHandler: checkSessionIdExists }, async (request, reply) => {
-    const { sessionId } = request.cookies;
-    const body = await knex("users").where("session_id", sessionId).select();
-    return reply.status(200).send(body);
-  });
+  app.get(
+    "/",
+    { preHandler: [checkSessionIdExists] },
+    async (request, reply) => {
+      const { sessionId } = request.cookies;
+      const body = await knex("users").where("session_id", sessionId).select();
+      return reply.status(200).send(body);
+    },
+  );
 
   app.post("/login", async (request, reply) => {
     const emailBodySchema = z.object({
